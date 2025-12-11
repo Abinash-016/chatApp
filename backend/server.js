@@ -1,6 +1,8 @@
+
+import dotenv from "dotenv";
 import path from "path";
 import express from "express";
-import dotenv from "dotenv";
+
 import cookieParser from "cookie-parser";
 
 import authRoutes from "./routes/auth.routes.js";
@@ -10,13 +12,7 @@ import userRoutes from "./routes/user.routes.js";
 import connectToMongoDB from "./db/connectToMongoDB.js";
 import { app, server } from "./socket/socket.js";
 
-import cors from "cors";
-
 dotenv.config();
-app.use(cors({
-  origin: "https://wavechatv2.vercel.app",
-  credentials: true,
-}));
 
 const __dirname = path.resolve();
 // PORT should be assigned after calling dotenv.config() because we need to access the env variables. Didn't realize while recording the video. Sorry for the confusion.
